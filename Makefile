@@ -35,7 +35,7 @@ lint-fix:
 	composer phpcbf -- --standard=PSR12 app routes tests database
 
 test-coverage:
-	composer exec --verbose phpunit tests -- --coverage-clover build/logs/clover.xml
+	XDEBUG_MODE=coverage composer exec --verbose phpunit tests -- --coverage-clover build/logs/clover.xml
 
 install:
 	composer install
