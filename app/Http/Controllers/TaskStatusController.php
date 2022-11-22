@@ -30,7 +30,7 @@ class TaskStatusController extends Controller
         $taskStatus = new TaskStatus();
         $taskStatus->fill($validated);
         $taskStatus->save();
-        flash('Статус создан успешно')->success();
+        flash(__('taskStatuses.Status has been added successfully'))->success();
         return redirect()->route('task_statuses.index');
     }
 
