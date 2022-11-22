@@ -11,17 +11,6 @@ class TaskStatusPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view any models.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function viewAny(User $user)
-    {
-        //
-    }
-
-    /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
@@ -30,7 +19,7 @@ class TaskStatusPolicy
      */
     public function view(User $user, TaskStatus $taskStatus)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +30,7 @@ class TaskStatusPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +42,7 @@ class TaskStatusPolicy
      */
     public function update(User $user, TaskStatus $taskStatus)
     {
-        //
+        return true;
     }
 
     /**
@@ -65,30 +54,6 @@ class TaskStatusPolicy
      */
     public function delete(User $user, TaskStatus $taskStatus)
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\TaskStatus  $taskStatus
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function restore(User $user, TaskStatus $taskStatus)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\TaskStatus  $taskStatus
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function forceDelete(User $user, TaskStatus $taskStatus)
-    {
-        //
+        return true;
     }
 }

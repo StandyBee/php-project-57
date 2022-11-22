@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\TaskStatus;
 
 class TaskStatusSeeder extends Seeder
 {
@@ -14,6 +15,12 @@ class TaskStatusSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $statuses = ['новый', 'в работе', 'на тестировании', 'завершен'];
+
+        foreach ($statuses as $status) {
+            $newStatus = new TaskStatus();
+            $newStatus->fill(['name' => $status]);
+            $newStatus->save();
+        }
     }
 }

@@ -12,26 +12,23 @@ class TaskStatusController extends Controller
 {
     public function index()
     {
-        $taskStatuses = TaskStatus::get();
+        $taskStatuses = TaskStatus::orderBy('id')->get();
         return view('task_statuses.index', compact('taskStatuses'));
     }
 
     public function create()
     {
-        if (!Auth::check()) {
-            return abort(403);
-        }
-        return view('task_statuses.create');
+        $taskStatus = new TaskStatus();
+        return view('task_statuses.create', compact('taskStatus'));
     }
 
     public function store(StoreTaskStatusRequest $request)
     {
-        if (!Auth::check()) {
-            return view('task_statuses.index');
-        }
-        //$validated = $request->validated();
+        $validated = $request->validate([
+            'name' => 'required|unique:task_statuses'
+        ]);
         $taskStatus = new TaskStatus();
-        $taskStatus->fill(['name' => $request]);
+        $taskStatus->fill($validated);
         $taskStatus->save();
         flash('Статус создан успешно')->success();
         return redirect()->route('task_statuses.index');
@@ -44,11 +41,10 @@ class TaskStatusController extends Controller
 
     public function update(UpdateTaskStatusRequest $request, TaskStatus $taskStatus)
     {
-        if (!Auth::check()) {
-            return view('task_statuses.index');
-        }
-
-        $taskStatus->fill(['name' => $request]);
+        $validated = $request->validate([
+            'name' => 'required|max:255|unique:task_statuses,name,' . $taskStatus->id
+        ]);
+        $taskStatus->fill($validated);
         $taskStatus->save();
         flash('Статус успешно изменен')->success();
         return redirect()->route('task_statuses.index');

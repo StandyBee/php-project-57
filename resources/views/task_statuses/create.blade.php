@@ -1,25 +1,20 @@
+
 @extends('layouts.app')
+
 @section('content')
-
-    <div class="grid col-span-full">
-        <h1 class="max-w-2xl mb-4 text-4xl leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">{{ __('layout.task_statuses_create') }}</h1>
-
-        {{ Form::open(['url' => route('task_statuses.store'), 'method' => 'POST', 'class' => 'w-50']) }}
-        <div class="flex flex-col">
-            <div>
-                {{ Form::label('name', __('layout.table_name')) }}
-            </div>
-            <div class="mt-2">
-                {{ Form::text('name', '', ['class' => 'form-control rounded border-gray-300 w-1/3']) }}
-            </div>
-            <div>
-                @includeWhen($errors->any() ,'layouts.errors-validation')
-            </div>
-            <div class="mt-2">
-                {{ Form::submit(__('layout.create_button'), ['class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded']) }}
-            </div>
+    <h1 class="mb-5">{{ __('taskStatuses.Create status') }}</h1>
+    {{Form::open(['url' => route('task_statuses.store'), 'class' => 'w-50'])}}
+    <div class="form-group mb-3">
+        {{Form::label('name', __('taskStatuses.Status name'))}}
+        {{Form::text('name', '', ['class' => 'form-control'])}}
+        <div class="invalid-feedback d-block">
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    {{ $error }}
+                @endforeach
+            @endif
         </div>
-        {{ Form::close() }}
     </div>
-
-@endsection
+    {{Form::submit(__('taskStatuses.Create'), ['class' => 'btn btn-info mt-3'])}}
+    {{ Form::close() }}
+@endsection('content')
