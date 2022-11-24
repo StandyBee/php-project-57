@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
+use App\Models\TaskStatus;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,8 +13,10 @@ class TaskController extends Controller
 {
     public function index()
     {
+        $taskStatuses = TaskStatus::all();
+        $users = User::all();
         $tasks = Task::orderBy('id')->get();
-        return view('tasks.index', compact('tasks'));
+        return view('tasks.index', compact('tasks', 'taskStatuses', 'users'));
     }
 
     public function create()
