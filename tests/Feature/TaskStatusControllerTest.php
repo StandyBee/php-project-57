@@ -61,7 +61,7 @@ class TaskStatusControllerTest extends TestCase
         $this->assertDatabaseHas('task_statuses', $inputData);
     }
 
-    public function testDestroy():void
+    public function testDestroy(): void
     {
         $taskStatus = TaskStatus::factory()->create();
 
