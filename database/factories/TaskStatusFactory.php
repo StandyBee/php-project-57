@@ -17,7 +17,7 @@ class TaskStatusFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->name(),
         ];
     }
 }
