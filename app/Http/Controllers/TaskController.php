@@ -40,7 +40,7 @@ class TaskController extends Controller
         $task = $user->task()->make();
         $task->fill($inputData);
         $task->save();
-        
+
         flash('success')->success();
         return redirect()->route('tasks.index');
     }
