@@ -13,16 +13,18 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $taskStatuses = TaskStatus::all();
-        $users = User::all();
+        $taskStatuses = TaskStatus::pluck('name', 'id')->all();
+        $users = User::pluck('name', 'id')->all();
         $tasks = Task::orderBy('id')->get();
         return view('tasks.index', compact('tasks', 'taskStatuses', 'users'));
     }
 
     public function create()
     {
-        $task = new Task();
-        return view('tasks.create', compact('task'));
+        //$task = new Task();
+        $taskStatuses = TaskStatus::pluck('name', 'id');
+        $users = User::pluck('name', 'id');
+        return view('tasks.create', compact('taskStatuses', 'users'));
     }
 
     public function store(StoreTaskRequest $request)
@@ -35,11 +37,11 @@ class TaskController extends Controller
         ]);
 
         $user = Auth::user();
-        $task = $user->tasks()->make();
+        $task = $user->task()->make();
         $task->fill($inputData);
         $task->save();
         
-        flash('success')->succcess();
+        flash('success')->success();
         return redirect()->route('tasks.index');
     }
 
