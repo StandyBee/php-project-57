@@ -31,4 +31,20 @@ class UpdateTaskRequest extends FormRequest
             'labels' => 'array|nullable',
         ];
     }
+
+        /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => __('controllers.required_error'),
+            'status_id.required' => __('controllers.required_error'),
+            'assigned_to_id.required' => __('controllers.required_error'),
+            'name.max' => __('controllers.max_error'),
+            'description.max' => __('controllers.max_error'),
+        ];
+    }
 }
