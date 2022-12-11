@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
+use App\Models\Label;
 use App\Models\TaskStatus;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,8 @@ class TaskController extends Controller
         //$task = new Task();
         $taskStatuses = TaskStatus::pluck('name', 'id');
         $users = User::pluck('name', 'id');
-        return view('tasks.create', compact('taskStatuses', 'users'));
+        $labels = Label::pluck('name', 'id');
+        return view('tasks.create', compact('taskStatuses', 'users', 'labels'));
     }
 
     public function store(StoreTaskRequest $request)
@@ -37,7 +39,8 @@ class TaskController extends Controller
         $task = $user->tasks()->make();
         $task->fill($inputData);
         $task->save();
-
+        $labels = collect($request->input('labels'))->filter(fn($label) => isset($label));
+        $task->labels()->attach($labels);
         flash('success')->success();
         return redirect()->route('tasks.index');
     }
@@ -51,7 +54,8 @@ class TaskController extends Controller
     {
         $taskStatuses = TaskStatus::pluck('name', 'id');
         $users = User::pluck('name', 'id');
-        return view('tasks.edit', compact('task', 'taskStatuses', 'users'));
+        $labels = Label::pluck('name', 'id');
+        return view('tasks.edit', compact('task', 'taskStatuses', 'users', 'labels'));
     }
 
     public function update(UpdateTaskRequest $request, Task $task)
@@ -65,6 +69,9 @@ class TaskController extends Controller
 
         $task->fill($inputData);
         $task->save();
+
+        $labels = collect($request->input('labels'))->filter(fn($label) => isset($label));
+        $task->labels()->sync($labels);
 
         flash('succ')->success();
         return redirect()->route('tasks.index');

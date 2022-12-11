@@ -7,5 +7,11 @@
 <h2>Имя: {{ $task->name }}</h2>
 <h2>Статус: {{ $task->status->name }}</h2>
 <h2>Описание: {{ $task->description }}</h2>
+<h2>
+    Метки:
+    @foreach($task->labels as $label)
+        {{ $label->name}}
+    @endforeach
+</h2>
 </div>
 @endsection
