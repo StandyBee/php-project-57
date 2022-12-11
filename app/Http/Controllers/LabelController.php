@@ -34,7 +34,6 @@ class LabelController extends Controller
 
     public function edit(Label $label)
     {
-        $label = new Label();
         return view('labels.edit', compact('label'));
     }
 
