@@ -8,6 +8,8 @@ use App\Models\Task;
 use App\Models\TaskStatus;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class TaskController extends Controller
 {
@@ -29,15 +31,10 @@ class TaskController extends Controller
 
     public function store(StoreTaskRequest $request)
     {
-        $inputData = $this->validate($request, [
-            'name' => 'required|max:255|unique:tasks',
-            'status_id' => 'required',
-            'description' => 'nullable|string',
-            'assigned_to_id' => 'nullable|integer'
-        ]);
+        $inputData = $request->validated();
 
         $user = Auth::user();
-        $task = $user->task()->make();
+        $task = $user->tasks()->make();
         $task->fill($inputData);
         $task->save();
 
