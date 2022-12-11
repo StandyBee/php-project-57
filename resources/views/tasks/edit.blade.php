@@ -11,24 +11,36 @@
             <div>
                 {{ Form::text('name', $task->name) }}
             </div>
+            @if ($errors->any())
+                {{ $errors->first('name') }}
+            @endif
             <div class="mt-2">
                 {{ Form::label('description', __('layout.table_description')) }}
             </div>
             <div>
                 {{ Form::textarea('description', $task->description, ['class' => 'rounded border-gray-300 w-1/3 h-32']) }}
             </div>
+            @if ($errors->any())
+                {{ $errors->first('description') }}
+            @endif
             <div>
                 {{ Form::label('status_id', __('layout.table_task_status')) }}
             </div>
             <div>
                 {{ Form::select('status_id', $taskStatuses, $task->status_id, ['placeholder' => 'Choose status']) }}
             </div>
+            @if ($errors->any())
+                {{ $errors->first('status_id') }}
+            @endif
             <div>
                 {{ Form::label('assigned_to_id', __('layout.table_assigned')) }}
             </div>
             <div>
                 {{ Form::select('assigned_to_id', $users, $task->assigned_to_id, ['placeholder' => 'Choose ss']) }}
             </div>
+            @if ($errors->any())
+                {{ $errors->first('assigned_to_id') }}
+            @endif
             <div>
                 {{ Form::submit(__('layout.update_button'), ['class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded']) }}
             </div>

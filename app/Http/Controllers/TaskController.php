@@ -57,7 +57,7 @@ class TaskController extends Controller
     public function update(UpdateTaskRequest $request, Task $task)
     {
         $inputData = $this->validate($request, [
-            'name' => 'required|max:255|unique:tasks',
+            'name' => 'required|max:255',
             'status_id' => 'required',
             'description' => 'nullable|string',
             'assigned_to_id' => 'nullable|integer'
