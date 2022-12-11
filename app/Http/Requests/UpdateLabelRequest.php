@@ -24,7 +24,8 @@ class UpdateLabelRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:labels|max:255',
+            'description' => 'nullable|max:255'
         ];
     }
 }

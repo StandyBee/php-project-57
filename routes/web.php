@@ -35,4 +35,4 @@ require __DIR__ . '/auth.php';
 
 Route::resource('task_statuses', TaskStatusController::class)->except(['show']);
 Route::resource('tasks', TaskController::class);
-Route::resource('labels', LabelController::class);
+Route::resource('labels', LabelController::class)->except(['show']);;
