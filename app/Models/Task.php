@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Models\TaskStatus;
 use App\Models\User;
+use App\Models\Label;
 
 class Task extends Model
 {
@@ -35,5 +37,10 @@ class Task extends Model
     public function status(): BelongsTo
     {
         return $this->belongsTo(TaskStatus::class);
+    }
+
+    public function labels(): BelongsToMany
+    {
+        return $this->belongsToMany(Label::class)
     }
 }
