@@ -10,7 +10,7 @@
 <h2>
     Метки:
     @foreach($task->labels as $label)
-        {{ $label->name}}
+        {{ $label->name }}
     @endforeach
 </h2>
 </div>
