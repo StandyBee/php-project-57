@@ -4,6 +4,26 @@
 <div class="grid col-span-full">
     <h1 class="max-w-2xl mb-4 text-4xl leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
         {{ __('layout.task_header') }} </h1>
+    <div class="w-full flex items-center">
+        <div>
+            {{ Form::open(['route' => 'tasks.index','method' => 'GET', 'class' => "form-inline"]) }}
+                <div class="flex">
+                    <div>
+                        {{ Form::select('filter[status_id]', $taskStatuses, request()->input('filter.status_id'), ['class' => 'form-control mr-2', 'placeholder' =>  __('layout.table_task_status')]) }}
+                    </div>
+                    <div>
+                        {{ Form::select('filter[created_by_id]', $users, request()->input('filter.created_by_id'), ['class' => 'form-control mr-2', 'placeholder' =>  __('layout.table_creater')]) }}
+                    </div>
+                    <div>
+                        {{ Form::select('filter[assigned_to_id]', $users, request()->input('filter.assigned_to_id'), ['class' => 'form-control mr-2', 'placeholder' =>  __('layout.table_assigned')]) }}
+                    </div>
+                    <div>
+                        {{ Form::submit(__('layout.create_apply'), ['class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded']) }}
+                    </div>
+                </div>
+            {{ Form::close() }}
+        </div>
+    </div>
     @auth()
     <div>
         @csrf

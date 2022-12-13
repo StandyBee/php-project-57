@@ -11,6 +11,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\AllowedFilter;
 
 class TaskController extends Controller
 {
@@ -18,7 +20,15 @@ class TaskController extends Controller
     {
         $taskStatuses = TaskStatus::pluck('name', 'id')->all();
         $users = User::pluck('name', 'id')->all();
-        $tasks = Task::orderBy('id')->get();
+        $tasks = QueryBuilder::for(task::class)
+        ->allowedFilters(
+            [
+                AllowedFilter::exact('status_id'),
+                AllowedFilter::exact('created_by_id'),
+                AllowedFilter::exact('assigned_to_id')
+            ])
+            ->paginate(10);
+
         return view('tasks.index', compact('tasks', 'taskStatuses', 'users'));
     }
 
