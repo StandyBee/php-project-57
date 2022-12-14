@@ -28,7 +28,7 @@ class LabelController extends Controller
         $label->fill($data);
         $label->save();
 
-        flash('ssss')->success();
+        flash(__('labels.Label has been added successfully'))->success();
         return redirect()->route('labels.index');
     }
 
@@ -44,7 +44,7 @@ class LabelController extends Controller
         $label->fill($data);
         $label->save();
 
-        flash('ssss')->success();
+        flash(__('labels.Label has been updated successfully'))->success();
         return redirect()->route('labels.index');
     }
 
@@ -56,7 +56,7 @@ class LabelController extends Controller
         }
 
         $label->delete();
-        flash('Label has been deleted successfully')->success();
+        flash(__('labels.Label has been deleted successfully'))->success();
         return redirect()->route('labels.index');
     }
 }

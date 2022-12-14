@@ -46,19 +46,19 @@ class TaskStatusController extends Controller
         ]);
         $taskStatus->fill($validated);
         $taskStatus->save();
-        flash('Статус успешно изменен')->success();
+        flash(__('taskStatuses.Status has been updated successfully'))->success();
         return redirect()->route('task_statuses.index');
     }
 
     public function destroy(TaskStatus $taskStatus)
     {
         if ($taskStatus->tasks()->exists()) {
-            flash('Не удалось удалить статус')->error();
+            flash(__('taskStatuses.Failed to delete status'))->error();
             return back();
         }
 
         $taskStatus->delete();
-        flash('Deleted succcess')->success();
+        flash(__('taskStatuses.Status has been deleted successfully'))->success();
         return redirect()->route('task_statuses.index');
     }
 }

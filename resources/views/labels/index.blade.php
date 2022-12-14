@@ -42,7 +42,7 @@
                     {{ __('layout.table_delete') }}
                 </a>
                 <a class="text-blue-600 hover:text-blue-900"
-                   href="{{ route("labels.edit", $label) }}"
+                   href="{{ route('labels.edit', $label) }}"
                 >
                     {{ __('layout.table_edit') }}
                 </a>

@@ -13,22 +13,22 @@ return [
     |
     */
 
-    'Status' => 'Статус',
-    'Create status' => 'Создать статус',
-    'Status name' => 'Имя',
+    'Task' => 'Задача',
+    'Create Task' => 'Создать задачу',
+    'Task name' => 'Имя',
     'Create' => 'Создать',
-    'Statuses' => 'Статусы',
-    'Status edit' => 'Изменение статуса',
+    'Tasks' => 'Задачи',
+    'Task edit' => 'Изменение задачи',
     'Edit' => 'Изменить',
     'Delete' => 'Удалить',
     'Update' => 'Обновить',
     'Date of creation' => 'Дата создания',
     'Actions' => 'Действия',
     'Apply' => 'Применить',
-    'Status has been added successfully' => 'Статус успешно создан',
-    'Status has been updated successfully' => 'Статус успешно изменён',
-    'Status has been deleted successfully' => 'Статус успешно удалён',
-    'Failed to delete status' => 'Не удалось удалить статус',
+    'Task has been added successfully' => 'Задача успешно создана',
+    'Task has been updated successfully' => 'Задача успешно изменена',
+    'Task has been deleted successfully' => 'Задача успешно удалена',
+    'Failed to delete Task' => 'Не удалось удалить задачу',
     'Description' => 'Описание',
     'Are you sure?' => 'Вы уверены?'
 ];

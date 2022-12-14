@@ -40,7 +40,7 @@
                     {{ __('layout.table_delete') }}
                 </a>
                 <a class="text-blue-600 hover:text-blue-900"
-                   href="{{ route("task_statuses.edit", $taskStatus) }}"
+                   href="{{ route('task_statuses.edit', $taskStatus) }}"
                 >
                     {{ __('layout.table_edit') }}
                 </a>

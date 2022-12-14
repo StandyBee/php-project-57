@@ -61,10 +61,11 @@
                 @can('delete', $task)
                 <a href="{{ route('tasks.destroy', $task) }}"
                     data-method="delete"
-                    data-confirm="{{__('Are you sure?')}}"
-                    class="text-danger">Удалить</a>
+                    data-confirm="{{ __('layout.table_delete_question') }}"
+                    class="text-red-600 hover:text-red-900">{{ __('layout.table_delete') }}</a>
                 @endcan
-                <a href="{{ route('tasks.edit', $task) }}">Изменить</a>
+                <a href="{{ route('tasks.edit', $task) }}"
+                    class="text-blue-600 hover:text-blue-900">{{ __('layout.table_edit') }}</a>
                 @endauth
                 </td>
             </tr>

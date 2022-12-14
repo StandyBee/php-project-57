@@ -52,7 +52,7 @@ class TaskController extends Controller
         $task->save();
         $labels = collect($request->input('labels'))->filter(fn($label) => isset($label));
         $task->labels()->attach($labels);
-        flash('success')->success();
+        flash(__('tasks.Task has been added successfully'))->success();
         return redirect()->route('tasks.index');
     }
 
@@ -84,14 +84,14 @@ class TaskController extends Controller
         $labels = collect($request->input('labels'))->filter(fn($label) => isset($label));
         $task->labels()->sync($labels);
 
-        flash('succ')->success();
+        flash(__('tasks.Task has been updated successfully'))->success();
         return redirect()->route('tasks.index');
     }
 
     public function destroy(Task $task)
     {
         $task->delete();
-        flash('Deleted succcess')->success();
+        flash(__('tasks.Task has been deleted successfully'))->success();
         return redirect()->route('tasks.index');
     }
 }
