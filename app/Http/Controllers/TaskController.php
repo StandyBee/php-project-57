@@ -28,7 +28,7 @@ class TaskController extends Controller
                 AllowedFilter::exact('assigned_to_id')
             ]
         )
-            ->paginate(10);
+            ->paginate(15);
 
         return view('tasks.index', compact('tasks', 'taskStatuses', 'users'));
     }

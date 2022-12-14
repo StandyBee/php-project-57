@@ -23,14 +23,16 @@
                 </div>
             {{ Form::close() }}
         </div>
+        <div class="ml-auto">
     </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     @auth()
-    <div>
         @csrf
         <a href="{{ route('tasks.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             {{ __('layout.create_button_task') }}</a>
-    </div>
     @endauth
+    </div>
+    </div>
     <table class="mt-4">
             <thead class="border-b-2 border-solid border-black text-left" style="text-align: left">
             <tr>
@@ -51,7 +53,7 @@
                 <td>{{ $task->id }}</td>
                 <td>{{ $taskStatuses[$task->status_id] }}</td>
                 <td>
-                    <a href="{{ route('tasks.show', $task) }}">{{ $task->name }}</a>
+                    <a href="{{ route('tasks.show', $task) }}" class="text-blue-600 hover:text-blue-900">{{ $task->name }}</a>
                 </td>
                 <td>{{ $users[$task->created_by_id] }}</td>
                 <td>{{ $users[$task->assigned_to_id] ?? '' }}</td>
@@ -72,5 +74,8 @@
             @endforeach
             </tbody>
         </table>
+        <div class="mt-4">
+            {{ $tasks->links() }}
+        </div>
     </div>
 @endsection
