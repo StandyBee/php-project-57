@@ -24,8 +24,22 @@ class UpdateLabelRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
+            'name' => 'required|unique:labels|max:255',
             'description' => 'nullable|max:255'
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'Это обязательное поле',
+            'name.unique' => 'Метка с таким именем уже существует',
+            'description.max' => 'слишком много текста'
         ];
     }
 }

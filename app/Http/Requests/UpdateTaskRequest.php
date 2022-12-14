@@ -32,7 +32,7 @@ class UpdateTaskRequest extends FormRequest
         ];
     }
 
-        /**
+    /**
      * Get the error messages for the defined validation rules.
      *
      * @return array
@@ -40,11 +40,9 @@ class UpdateTaskRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => __('controllers.required_error'),
-            'status_id.required' => __('controllers.required_error'),
-            'assigned_to_id.required' => __('controllers.required_error'),
-            'name.max' => __('controllers.max_error'),
-            'description.max' => __('controllers.max_error'),
+            'name.required' => 'Это обязательное поле',
+            'name.unique' => 'Задача с таким именем уже существует',
+            'status_id.required' => 'Это обязательное поле'
         ];
     }
 }

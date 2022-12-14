@@ -40,9 +40,9 @@ class StoreTaskRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => __('controllers.required_error'),
-            'name.unique' => __('controllers.unique_error_status'),
-            'name.max' => __('controllers.max_error'),
+            'name.required' => 'Это обязательное поле',
+            'name.unique' => 'Задача с таким именем уже существует',
+            'status_id.required' => 'Это обязательное поле'
         ];
     }
 }
