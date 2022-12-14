@@ -31,7 +31,7 @@
                 {{ Form::label('status_id', __('layout.table_task_status')) }}
             </div>
             <div>
-                {{ Form::select('status_id', $taskStatuses, null, ['placeholder' => 'Choose status']) }}
+                {{ Form::select('status_id', $taskStatuses, null, ['placeholder' => '----------']) }}
             </div>
             <div>
                 @if ($errors->any())
@@ -42,7 +42,7 @@
                 {{ Form::label('assigned_to_id', __('layout.table_assigned')) }}
             </div>
             <div>
-                {{ Form::select('assigned_to_id', $users, null, ['placeholder' => 'Choose ss']) }}
+                {{ Form::select('assigned_to_id', $users, null, ['placeholder' => '----------']) }}
             </div>
             <div>
                 @if ($errors->any())
@@ -50,7 +50,7 @@
                 @endif
             </div>
             <div>
-                {{ Form::label('labels', __('layout.table_metka')) }}
+                {{ Form::label('labels', __('layout.labels_header')) }}
             </div>
             <div>
                 {{ Form::select('labels[]', $labels, null, ['class' => 'form-control rounded border-gray-300 w-1/3 h-32', 'multiple' => 'multiple']) }}
