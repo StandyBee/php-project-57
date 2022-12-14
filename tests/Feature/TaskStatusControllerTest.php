@@ -13,7 +13,7 @@ class TaskStatusControllerTest extends TestCase
 
     public function setUp(): void
     {
-        parent::SetUp();
+        parent::setUp();
         $this->user = User::factory()->create();
     }
 
