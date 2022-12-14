@@ -12,12 +12,10 @@ use App\Models\Task;
 class TaskControllerTest extends TestCase
 {
     private User $user;
-    private Task $task;
-    private array $data;
 
     public function setUp(): void
     {
-        parent::SetUp();
+        parent::setUp();
         $this->user = User::factory()->create();
     }
 
