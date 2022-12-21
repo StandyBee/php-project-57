@@ -11,7 +11,7 @@
             <div>
                 {{ Form::text('name') }}
             </div>
-            <div>
+            <div class="text-red-600 hover:text-red-900">
                 @if ($errors->any())
                     {{ $errors->first('name') }}
                 @endif
@@ -22,7 +22,7 @@
             <div>
                 {{ Form::textarea('description', '', ['class' => 'rounded border-gray-300 w-1/3 h-32']) }}
             </div>
-            <div>
+            <div class="text-red-600 hover:text-red-900">
                 @if ($errors->any())
                     {{ $errors->first('description') }}
                 @endif
@@ -33,7 +33,7 @@
             <div>
                 {{ Form::select('status_id', $taskStatuses, null, ['placeholder' => '----------']) }}
             </div>
-            <div>
+            <div class="text-red-600 hover:text-red-900">
                 @if ($errors->any())
                     {{ $errors->first('status_id') }}
                 @endif
@@ -44,7 +44,7 @@
             <div>
                 {{ Form::select('assigned_to_id', $users, null, ['placeholder' => '----------']) }}
             </div>
-            <div>
+            <div class="text-red-600 hover:text-red-900">
                 @if ($errors->any())
                     {{ $errors->first('assigned_to_id') }}
                 @endif

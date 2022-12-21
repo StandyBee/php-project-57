@@ -13,7 +13,7 @@
             <div class="mt-2">
                 {{ Form::text('name', '', ['class' => 'form-control rounded border-gray-300 w-1/3']) }}
             </div>
-            <div class="invalid-feedback d-block">
+            <div class="text-red-600 hover:text-red-900">
             @if ($errors->any())
                 @foreach ($errors->all() as $error)
                     {{ $error }}
