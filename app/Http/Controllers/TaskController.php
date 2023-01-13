@@ -35,7 +35,6 @@ class TaskController extends Controller
 
     public function create()
     {
-        //$task = new Task();
         $taskStatuses = TaskStatus::pluck('name', 'id');
         $users = User::pluck('name', 'id');
         $labels = Label::pluck('name', 'id');

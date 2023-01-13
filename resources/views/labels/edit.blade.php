@@ -13,11 +13,9 @@
             <div class="mt-2">
                 {{ Form::text('name', $label->name, ['class' => 'form-control rounded border-gray-300 w-1/3']) }}
             </div>
-            <div class="invalid-feedback d-block">
+            <div class="text-red-600 hover:text-red-900">
             @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    {{ $error }}
-                @endforeach
+                {{ $errors->first('name') }}
             @endif
             </div>
             <div>
@@ -26,7 +24,10 @@
             <div class="mt-2">
                 {{ Form::textarea('description', $label->description, ['class' => 'form-control rounded border-gray-300 w-1/1']) }}
             </div>
-            <div class="invalid-feedback d-block">
+            <div class="text-red-600 hover:text-red-900">
+            @if ($errors->any())
+                {{ $errors->first('description') }}
+            @endif
             </div>
             <div class="mt-2">
                 {{ Form::submit(__('layout.update_button'), ['class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded']) }}

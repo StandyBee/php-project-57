@@ -39,7 +39,8 @@ class UpdateLabelRequest extends FormRequest
         return [
             'name.required' => 'Это обязательное поле',
             'name.unique' => 'Метка с таким именем уже существует',
-            'description.max' => 'слишком много текста'
+            'name.max' => 'Имя не должно превышать 255 символов',
+            'description.max' => 'Описание не должно превышать 255 символов',
         ];
     }
 }

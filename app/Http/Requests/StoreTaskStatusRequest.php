@@ -38,7 +38,8 @@ class StoreTaskStatusRequest extends FormRequest
     {
         return [
             'name.required' => 'Это обязательное поле',
-            'name.unique' => 'Статус с таким именем уже существует'
+            'name.unique' => 'Статус с таким именем уже существует',
+            'name.max' => 'Имя не должно превышать 255 символов',
         ];
     }
 }

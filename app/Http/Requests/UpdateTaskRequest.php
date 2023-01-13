@@ -42,6 +42,8 @@ class UpdateTaskRequest extends FormRequest
         return [
             'name.required' => 'Это обязательное поле',
             'name.unique' => 'Задача с таким именем уже существует',
+            'name.max' => 'Имя не должно превышать 255 символов',
+            'description.max' => 'Описание не должно превышать 255 символов',
             'status_id.required' => 'Это обязательное поле'
         ];
     }
