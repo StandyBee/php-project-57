@@ -43,15 +43,18 @@
                     <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                         <li>
                             <a href="{{ route('tasks.index') }}" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                                Задачи                             </a>
+                            {{ __('layout.tasks') }}
+                            </a>
                         </li>
                         <li>
                             <a href="{{ route('task_statuses.index') }}" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                                {{ __('layout.task_statuses') }}                                </a>
+                                {{ __('layout.task_statuses') }}
+                            </a>
                         </li>
                         <li>
                             <a href="{{ route('labels.index') }}" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                              Метки                             </a>
+                            {{ __('layout.labels') }}
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -59,12 +62,13 @@
         </nav>
     </header>
 </div>
-<section class="bg-white dark:bg-gray-900">
+<main class="bg-white dark:bg-gray-900">
     <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
-        <div class="mt-4 grid col-span-full">@include('flash::message')</div>
+        <div class="mt-4 grid col-span-full">
+            @include('flash::message')
+        </div>
         @yield('content')
     </div>
-</section>
-@extends('layouts.flash-scripts')
+</main>
 </body>
 </html>

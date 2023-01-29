@@ -3,14 +3,15 @@
 
 <div class="grid col-span-full">
 <h1 class=" mb-5 text-4xl"> 
-    Просмотр задачи: {{ $task->name }}
+    {{ __('tasks.Show_task') }} {{ $task->name }}
     <a href="{{ route('tasks.edit', $task) }}">&#9881;</a>
 </h1>
-<h2><span class="font-black">Имя: </span>{{ $task->name }}</h2>
-<h2><span class="font-black">Статус: </span>{{ $task->status->name }}</h2>
-<h2><span class="font-black">Описание: </span>{{ $task->description }}</h2>
+<h2><span class="font-black">{{ __('tasks.Task_name') }} </span>{{ $task->name }}</h2>
+<h2><span class="font-black">{{ __('tasks.Task_status') }}  </span>{{ $task->status->name }}</h2>
+<h2><span class="font-black">{{ __('tasks.Task_description') }}  </span>{{ $task->description }}</h2>
 <h2><span class="font-black">
-    Метки: </span>
+    {{ __('tasks.Task_labels') }}
+    </span>
     @foreach($task->labels as $label)
     <div class="text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-blue-200 text-blue-700 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

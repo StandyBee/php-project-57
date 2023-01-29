@@ -15,7 +15,11 @@ return [
 
     'Task' => 'Задача',
     'Create Task' => 'Создать задачу',
-    'Task name' => 'Имя',
+    'Show_task' => 'Просмотр задачи:',
+    'Task_name' => 'Имя:',
+    'Task_status' => 'Статус:',
+    'Task_description' => 'Описание:',
+    'Task_labels' => 'Метки:',
     'Create' => 'Создать',
     'Tasks' => 'Задачи',
     'Task edit' => 'Изменение задачи',
